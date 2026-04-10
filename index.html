@@ -10,56 +10,52 @@
 :root{--geo:#D4A574;--hydro:#64B5F6;--atmo:#90A4AE;--bio:#81C784;--exo:#FFD54F;--correct:#4CAF50;--wrong:#EF5350;}
 html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;}
 body{font-family:'Gaegu',cursive;background:#0f1629;min-height:100vh;min-height:100dvh;overflow-x:hidden;color:#fff;-webkit-font-smoothing:antialiased;}
-
 .stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
 .star{position:absolute;background:#fff;border-radius:50%;animation:twinkle 2s infinite alternate;}
 @keyframes twinkle{0%{opacity:.15}100%{opacity:1}}
-
 .container{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:12px;padding-bottom:env(safe-area-inset-bottom,12px);}
-
 .header{text-align:center;padding:14px 0 6px;}
 .header h1{font-family:'Black Han Sans',sans-serif;font-size:clamp(1.4rem,5vw,1.9rem);text-shadow:0 0 24px rgba(100,181,246,.45);margin-bottom:2px;}
 .header .sub{font-family:'Jua',sans-serif;font-size:clamp(.8rem,2.5vw,.95rem);color:rgba(255,255,255,.5);}
-
 .tabs{display:flex;gap:5px;justify-content:center;margin:10px 0;flex-wrap:wrap;}
 .tab{font-family:'Jua',sans-serif;font-size:clamp(.88rem,2.8vw,1.05rem);padding:9px 16px;border:none;border-radius:28px;cursor:pointer;transition:.3s;color:rgba(255,255,255,.45);background:rgba(255,255,255,.07);touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
 .tab.active{color:#fff;background:linear-gradient(135deg,#667eea,#764ba2);box-shadow:0 4px 14px rgba(102,126,234,.4);transform:scale(1.05);}
-
 .game-section{display:none;}.game-section.active{display:block;}
+
+/* Intro screens */
+.intro-screen{text-align:center;max-width:480px;margin:0 auto;padding:20px 16px;}
+.intro-screen .intro-icon{font-size:3.5rem;margin-bottom:10px;}
+.intro-screen h2{font-family:'Black Han Sans',sans-serif;font-size:1.5rem;margin-bottom:12px;color:#fff;}
+.intro-rules{text-align:left;background:rgba(255,255,255,.05);border-radius:16px;padding:16px 18px;margin:12px 0 18px;font-family:'Jua',sans-serif;font-size:clamp(.88rem,2.5vw,1rem);line-height:1.8;color:rgba(255,255,255,.7);}
+.intro-rules li{margin-bottom:4px;list-style:none;}
+.intro-rules li::before{margin-right:6px;}
+.start-btn{font-family:'Black Han Sans',sans-serif;font-size:1.3rem;padding:16px 48px;border:none;border-radius:30px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;cursor:pointer;box-shadow:0 4px 20px rgba(102,126,234,.5);transition:.3s;touch-action:manipulation;animation:pulse-start 2s infinite;}
+.start-btn:active{transform:scale(.95);}
+@keyframes pulse-start{0%,100%{box-shadow:0 4px 20px rgba(102,126,234,.5)}50%{box-shadow:0 4px 30px rgba(102,126,234,.8)}}
 
 .quiz-box{background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.08);border-radius:20px;padding:24px 16px;text-align:center;margin:0 auto 14px;max-width:520px;position:relative;overflow:hidden;}
 .quiz-box::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 30%,rgba(102,126,234,.06),transparent 60%);pointer-events:none;}
-
 .card-num{font-family:'Jua',sans-serif;font-size:.8rem;color:rgba(255,255,255,.35);margin-bottom:4px;}
 .quiz-word{font-family:'Black Han Sans',sans-serif;font-size:clamp(1.8rem,7vw,2.6rem);margin:10px 0 4px;animation:popIn .4s ease;}
 @keyframes popIn{0%{transform:scale(.5) rotate(-5deg);opacity:0}60%{transform:scale(1.1) rotate(2deg)}100%{transform:scale(1) rotate(0);opacity:1}}
 .quiz-desc{font-family:'Gaegu',cursive;font-size:clamp(.88rem,2.5vw,1rem);color:rgba(255,255,255,.4);margin-bottom:14px;min-height:18px;line-height:1.4;}
-
-/* ★ Timer bar */
-.timer-wrap{max-width:300px;margin:0 auto 12px;height:8px;background:rgba(255,255,255,.08);border-radius:8px;overflow:hidden;position:relative;}
+.timer-wrap{max-width:300px;margin:0 auto 12px;height:8px;background:rgba(255,255,255,.08);border-radius:8px;overflow:hidden;}
 .timer-bar{height:100%;border-radius:8px;transition:width .1s linear;background:linear-gradient(90deg,#4CAF50,#8BC34A);}
 .timer-bar.warn{background:linear-gradient(90deg,#FF9800,#FF5722);}
 .timer-bar.danger{background:linear-gradient(90deg,#EF5350,#D32F2F);animation:pulse-bar .3s infinite alternate;}
 @keyframes pulse-bar{0%{opacity:.7}100%{opacity:1}}
 .timer-text{font-family:'Jua',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);text-align:center;margin-bottom:4px;min-height:20px;}
-
-/* Life (hearts) */
 .life-bar{display:flex;gap:4px;justify-content:center;margin-bottom:8px;}
 .heart{font-size:1.4rem;transition:.3s;}
 .heart.lost{opacity:.2;transform:scale(.7);filter:grayscale(1);}
 .heart.breaking{animation:heartBreak .5s ease;}
 @keyframes heartBreak{0%{transform:scale(1)}30%{transform:scale(1.3)}60%{transform:scale(.5);opacity:.5}100%{transform:scale(.7);opacity:.2}}
-
-/* Combo */
 .combo-display{font-family:'Black Han Sans',sans-serif;font-size:1.4rem;text-align:center;min-height:32px;color:#FF9800;margin:4px 0;}
 .combo-pop{animation:comboPop .4s ease;}
 @keyframes comboPop{0%{transform:scale(.5);opacity:0}60%{transform:scale(1.2)}100%{transform:scale(1);opacity:1}}
-
-/* Speed bonus popup */
 .speed-bonus{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Black Han Sans',sans-serif;font-size:2rem;color:#FFD54F;pointer-events:none;animation:speedFly 1s ease forwards;z-index:10;text-shadow:0 2px 10px rgba(0,0,0,.5);}
 @keyframes speedFly{0%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-120%) scale(1.5)}}
 
-/* 5-choice grid */
 .choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:420px;margin:0 auto;}
 .choice-btn{font-family:'Jua',sans-serif;font-size:clamp(.95rem,3vw,1.1rem);padding:14px 6px;border:2px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.04);color:#fff;cursor:pointer;transition:.2s;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .choice-grid .choice-btn:nth-child(4){grid-column:1/2;}
@@ -71,24 +67,19 @@ body{font-family:'Gaegu',cursive;background:#0f1629;min-height:100vh;min-height:
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
 .choice-btn .icon{font-size:1.2rem;margin-bottom:1px;}
 
-/* Interact quiz */
 .interact-choices{display:flex;flex-direction:column;gap:8px;max-width:440px;margin:0 auto;}
 .interact-btn{font-family:'Jua',sans-serif;font-size:clamp(.92rem,2.8vw,1.05rem);padding:14px 14px;border:2px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.04);color:#fff;cursor:pointer;transition:.2s;text-align:left;line-height:1.4;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
 .interact-btn:active{background:rgba(255,255,255,.12);}
 .interact-btn.correct{background:rgba(76,175,80,.3)!important;border-color:var(--correct)!important;}
 .interact-btn.wrong{background:rgba(239,83,80,.3)!important;border-color:var(--wrong)!important;}
-
 .feedback{font-family:'Jua',sans-serif;font-size:clamp(1rem,3vw,1.15rem);margin-top:12px;min-height:32px;line-height:1.4;}
 .hint-btn{font-family:'Gaegu',cursive;font-size:.88rem;background:none;border:1px dashed rgba(255,255,255,.18);color:rgba(255,255,255,.35);padding:5px 14px;border-radius:18px;cursor:pointer;margin-top:8px;transition:.2s;touch-action:manipulation;}
 .hint-btn:hover,.hint-btn:active{color:#FFD54F;border-color:#FFD54F;}
-
 .stats-bar{display:flex;justify-content:center;gap:10px;margin:8px 0 10px;font-family:'Jua',sans-serif;font-size:clamp(.85rem,2.5vw,1.05rem);flex-wrap:wrap;}
 .stats-bar span{background:rgba(255,255,255,.08);padding:5px 12px;border-radius:18px;white-space:nowrap;}
 .stats-bar .num{color:#FFD54F;}
-
 .result-area{text-align:center;padding:24px 12px;}
 .result-area .grade{font-family:'Black Han Sans',sans-serif;font-size:3.5rem;color:#FFD54F;margin:8px 0;}
-
 .summary-table{margin:16px auto;border-collapse:collapse;width:100%;max-width:600px;font-family:'Jua',sans-serif;font-size:clamp(.78rem,2.2vw,.95rem);}
 .summary-table th{padding:8px 6px;border-bottom:2px solid rgba(255,255,255,.15);color:#FFD54F;}
 .summary-table td{padding:7px 6px;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top;line-height:1.5;}
@@ -99,21 +90,18 @@ body{font-family:'Gaegu',cursive;background:#0f1629;min-height:100vh;min-height:
 .cat-label.bio{background:rgba(129,199,132,.2);color:var(--bio);}
 .cat-label.exo{background:rgba(255,213,79,.2);color:var(--exo);}
 
-/* Game Over overlay */
 .gameover-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:50;align-items:center;justify-content:center;}
 .gameover-overlay.show{display:flex;}
 .gameover-box{background:linear-gradient(135deg,#1a0a0a,#2a1020);border:3px solid var(--wrong);border-radius:26px;padding:32px 24px;text-align:center;animation:popIn .5s ease;max-width:360px;width:92%;}
 .gameover-box h2{font-family:'Black Han Sans',sans-serif;font-size:1.8rem;color:var(--wrong);margin:8px 0;}
 .gameover-box p{font-family:'Jua',sans-serif;font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:14px;}
 
-/* Bingo */
 .bingo-info{text-align:center;margin:8px 0;}
 .bingo-count{font-family:'Black Han Sans',sans-serif;font-size:1.2rem;color:#FFD54F;}
 .bingo-sub{font-family:'Gaegu',cursive;font-size:.82rem;color:rgba(255,255,255,.35);margin-top:2px;}
 .host-guide{background:rgba(255,213,79,.08);border:1.5px solid rgba(255,213,79,.2);border-radius:14px;padding:12px 14px;margin:10px auto 14px;max-width:460px;text-align:center;}
 .host-guide .guide-title{font-family:'Jua',sans-serif;font-size:1rem;color:#FFD54F;margin-bottom:4px;}
 .host-guide .guide-desc{font-family:'Gaegu',cursive;font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.5;}
-
 .bingo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;max-width:400px;margin:12px auto;}
 .bingo-cell{aspect-ratio:1;border:2px solid rgba(255,255,255,.1);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;background:rgba(255,255,255,.03);transition:.2s;padding:3px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
 .bingo-cell:active:not(.marked){background:rgba(255,255,255,.1);transform:scale(.96);}
@@ -123,7 +111,6 @@ body{font-family:'Gaegu',cursive;background:#0f1629;min-height:100vh;min-height:
 .bingo-cell.marked .cw{text-decoration:line-through;opacity:.6;}
 .bingo-cell.bingo-line{background:linear-gradient(135deg,rgba(255,213,79,.35),rgba(255,152,0,.35))!important;border-color:#FFD54F!important;box-shadow:0 0 18px rgba(255,213,79,.35)!important;animation:bglow 1s infinite alternate;}
 @keyframes bglow{0%{box-shadow:0 0 8px rgba(255,213,79,.25)}100%{box-shadow:0 0 22px rgba(255,213,79,.5)}}
-
 .bingo-call{text-align:center;margin:10px 0;}
 .call-btn{font-family:'Jua',sans-serif;font-size:clamp(1rem,3vw,1.15rem);padding:12px 28px;border:none;border-radius:28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;cursor:pointer;transition:.3s;box-shadow:0 4px 14px rgba(102,126,234,.35);touch-action:manipulation;display:none;}
 .call-btn:active{transform:scale(.97);}
@@ -132,50 +119,29 @@ body{font-family:'Gaegu',cursive;background:#0f1629;min-height:100vh;min-height:
 .called-cat{font-family:'Jua',sans-serif;font-size:.92rem;min-height:22px;margin-bottom:4px;}
 .called-history{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin:8px auto;max-width:500px;}
 .chip{font-family:'Gaegu',cursive;font-size:.72rem;padding:2px 8px;border-radius:10px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.4);}
-
 .btn-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:12px auto;}
 .rbtn,.cbtn{font-family:'Jua',sans-serif;font-size:clamp(.92rem,2.8vw,1.05rem);padding:11px 24px;border:2px solid rgba(255,255,255,.18);border-radius:28px;background:transparent;color:#fff;cursor:pointer;transition:.3s;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
 .rbtn:active,.cbtn:active{background:rgba(255,255,255,.1);}
 .cbtn{border-color:rgba(255,213,79,.35);color:#FFD54F;}
-
 .win-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.65);z-index:50;align-items:center;justify-content:center;}
 .win-overlay.show{display:flex;}
 .win-box{background:linear-gradient(135deg,#0f1629,#16213e);border:3px solid #FFD54F;border-radius:26px;padding:32px 24px;text-align:center;animation:popIn .5s ease;max-width:360px;width:92%;}
 .win-box .trophy{font-size:4rem;margin-bottom:8px;}
 .win-box h2{font-family:'Black Han Sans',sans-serif;font-size:1.8rem;color:#FFD54F;margin-bottom:4px;}
 .win-box p{font-family:'Jua',sans-serif;font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:14px;}
-
 .toast{position:fixed;bottom:max(24px,env(safe-area-inset-bottom,24px));left:50%;transform:translateX(-50%) translateY(80px);background:rgba(76,175,80,.92);color:#fff;font-family:'Jua',sans-serif;font-size:1rem;padding:11px 22px;border-radius:26px;z-index:200;transition:.4s;opacity:0;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.25);}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
 .confetti-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:100;}
-.confetti-piece{position:absolute;width:10px;height:10px;top:-20px;animation:cfall linear forwards;}
+.confetti-piece{position:absolute;top:-20px;animation:cfall linear forwards;}
 @keyframes cfall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
-
-/* Screen shake */
 .screen-shake{animation:screenShake .4s ease;}
 @keyframes screenShake{0%,100%{transform:translate(0)}20%{transform:translate(-4px,2px)}40%{transform:translate(4px,-2px)}60%{transform:translate(-2px,4px)}80%{transform:translate(2px,-4px)}}
-
 .cg{color:var(--geo)}.ch{color:var(--hydro)}.ca{color:var(--atmo)}.cb{color:var(--bio)}.ce{color:var(--exo)}
-
-@media(max-width:420px){
-  .container{padding:8px;}
-  .quiz-box{padding:20px 12px;}
-  .choice-grid{gap:6px;max-width:100%;}
-  .choice-btn{padding:12px 4px;min-height:50px;}
-  .bingo-grid{gap:3px;max-width:100%;}
-  .btn-row{gap:6px;}
-  .rbtn,.cbtn{padding:10px 18px;font-size:.9rem;}
-}
-@media(max-width:360px){
-  .choice-grid{gap:4px;}
-  .choice-btn{font-size:.85rem;padding:10px 2px;min-height:46px;}
-  .bingo-cell .cw{font-size:.7rem;}
-  .stats-bar{gap:6px;}.stats-bar span{padding:4px 7px;font-size:.8rem;}
-}
+@media(max-width:420px){.container{padding:8px;}.quiz-box{padding:20px 12px;}.choice-grid{gap:6px;max-width:100%;}.choice-btn{padding:12px 4px;min-height:50px;}.bingo-grid{gap:3px;max-width:100%;}.btn-row{gap:6px;}.rbtn,.cbtn{padding:10px 18px;font-size:.9rem;}}
+@media(max-width:360px){.choice-grid{gap:4px;}.choice-btn{font-size:.85rem;padding:10px 2px;min-height:46px;}.bingo-cell .cw{font-size:.7rem;}.stats-bar{gap:6px;}.stats-bar span{padding:4px 7px;font-size:.8rem;}}
 </style>
 </head>
 <body>
-
 <div class="stars" id="stars"></div>
 <div class="confetti-container" id="confetti"></div>
 <div class="toast" id="toast"></div>
@@ -185,62 +151,93 @@ body{font-family:'Gaegu',cursive;background:#0f1629;min-height:100vh;min-height:
     <h1>🌍 송쌤과학 지구계 활동 놀이</h1>
     <div class="sub">지구계 구성요소와 상호작용을 마스터하자!</div>
   </div>
-
   <div class="tabs">
     <button class="tab active" onclick="go('card')">🃏 카드게임</button>
     <button class="tab" onclick="go('interact')">🔄 상호작용 퀴즈</button>
     <button class="tab" onclick="go('bingo')">🎯 4×4 빙고</button>
   </div>
 
-  <!-- ========== CARD GAME ========== -->
+  <!-- ===== CARD GAME ===== -->
   <div class="game-section active" id="secCard">
-    <div class="stats-bar">
-      <span>📝 <span id="cProg">1/16</span></span>
-      <span>⭐ <span class="num" id="cScore">0</span>점</span>
-      <span>🎯 <span class="num" id="cAcc">0</span>%</span>
-    </div>
-    <div class="life-bar" id="cLife"></div>
-    <div class="quiz-box" id="cQuiz">
-      <div class="card-num" id="cNum">CARD 1</div>
-      <div class="timer-text" id="cTimerText"></div>
-      <div class="timer-wrap"><div class="timer-bar" id="cTimerBar"></div></div>
-      <div class="quiz-word" id="cWord"></div>
-      <div class="quiz-desc" id="cHint"></div>
-      <div class="combo-display" id="cCombo"></div>
-      <div class="choice-grid">
-        <button class="choice-btn" data-cat="지권" onclick="cAnswer('지권')"><span class="icon">🏔️</span>지권</button>
-        <button class="choice-btn" data-cat="수권" onclick="cAnswer('수권')"><span class="icon">🌊</span>수권</button>
-        <button class="choice-btn" data-cat="기권" onclick="cAnswer('기권')"><span class="icon">💨</span>기권</button>
-        <button class="choice-btn" data-cat="생물권" onclick="cAnswer('생물권')"><span class="icon">🌿</span>생물권</button>
-        <button class="choice-btn" data-cat="외권" onclick="cAnswer('외권')"><span class="icon">☀️</span>외권</button>
+    <!-- 시작 안내 -->
+    <div class="intro-screen" id="cIntro">
+      <div class="intro-icon">🃏</div>
+      <h2>지구계 구성요소 카드게임</h2>
+      <div class="intro-rules">
+        <li>🏔️ 단어를 보고 지권·수권·기권·생물권·외권 중 정답을 고르세요!</li>
+        <li>❤️ 생명 3개! 틀리거나 시간 초과 시 하나씩 감소</li>
+        <li>⏰ 문제당 10초 제한 시간</li>
+        <li>⚡ 빠르게 맞출수록 스피드 보너스 점수!</li>
+        <li>🔥 연속 정답 시 콤보 보너스!</li>
+        <li>💡 힌트를 보면 -3점 감점</li>
       </div>
-      <div class="feedback" id="cFb"></div>
-      <button class="hint-btn" id="cHintBtn" onclick="cShowHint()">💡 힌트 보기 (-3점)</button>
+      <button class="start-btn" onclick="cStart()">🚀 게임 시작!</button>
     </div>
-    <div class="result-area" id="cResult" style="display:none;"></div>
+    <!-- 게임 진행 -->
+    <div id="cGameArea" style="display:none;">
+      <div class="stats-bar">
+        <span>📝 <span id="cProg">1/16</span></span>
+        <span>⭐ <span class="num" id="cScore">0</span>점</span>
+        <span>🎯 <span class="num" id="cAcc">0</span>%</span>
+      </div>
+      <div class="life-bar" id="cLife"></div>
+      <div class="quiz-box" id="cQuiz">
+        <div class="card-num" id="cNum">CARD 1</div>
+        <div class="timer-text" id="cTimerText"></div>
+        <div class="timer-wrap"><div class="timer-bar" id="cTimerBar"></div></div>
+        <div class="quiz-word" id="cWord"></div>
+        <div class="quiz-desc" id="cHint"></div>
+        <div class="combo-display" id="cCombo"></div>
+        <div class="choice-grid">
+          <button class="choice-btn" data-cat="지권" onclick="cAnswer('지권')"><span class="icon">🏔️</span>지권</button>
+          <button class="choice-btn" data-cat="수권" onclick="cAnswer('수권')"><span class="icon">🌊</span>수권</button>
+          <button class="choice-btn" data-cat="기권" onclick="cAnswer('기권')"><span class="icon">💨</span>기권</button>
+          <button class="choice-btn" data-cat="생물권" onclick="cAnswer('생물권')"><span class="icon">🌿</span>생물권</button>
+          <button class="choice-btn" data-cat="외권" onclick="cAnswer('외권')"><span class="icon">☀️</span>외권</button>
+        </div>
+        <div class="feedback" id="cFb"></div>
+        <button class="hint-btn" id="cHintBtn" onclick="cShowHint()">💡 힌트 보기 (-3점)</button>
+      </div>
+      <div class="result-area" id="cResult" style="display:none;"></div>
+    </div>
   </div>
 
-  <!-- ========== INTERACTION QUIZ ========== -->
+  <!-- ===== INTERACTION QUIZ ===== -->
   <div class="game-section" id="secInteract">
-    <div class="stats-bar">
-      <span>📝 <span id="iProg">1/7</span></span>
-      <span>⭐ <span class="num" id="iScore">0</span>점</span>
+    <div class="intro-screen" id="iIntro">
+      <div class="intro-icon">🔄</div>
+      <h2>지구계 상호작용 퀴즈</h2>
+      <div class="intro-rules">
+        <li>🌍 현상을 읽고, 어떤 두 구성요소의 상호작용인지 맞추세요!</li>
+        <li>❤️ 생명 3개! 틀리거나 시간 초과 시 하나씩 감소</li>
+        <li>⏰ 문제당 12초 제한 시간</li>
+        <li>⚡ 빠르게 맞출수록 스피드 보너스!</li>
+        <li>🔥 연속 정답 시 콤보 보너스!</li>
+        <li>📋 완료 후 상호작용 정리표를 확인할 수 있어요</li>
+      </div>
+      <button class="start-btn" onclick="iStart()">🚀 게임 시작!</button>
     </div>
-    <div class="life-bar" id="iLife"></div>
-    <div class="quiz-box" id="iQuiz">
-      <div class="card-num" id="iNum">문제 1</div>
-      <div class="timer-text" id="iTimerText"></div>
-      <div class="timer-wrap"><div class="timer-bar" id="iTimerBar"></div></div>
-      <div class="quiz-word" id="iTitle" style="font-size:clamp(1.2rem,4vw,1.5rem);"></div>
-      <div class="quiz-desc" id="iDesc" style="font-size:clamp(.9rem,2.5vw,1.05rem);color:rgba(255,255,255,.55);"></div>
-      <div class="combo-display" id="iCombo"></div>
-      <div class="interact-choices" id="iChoices"></div>
-      <div class="feedback" id="iFb"></div>
+    <div id="iGameArea" style="display:none;">
+      <div class="stats-bar">
+        <span>📝 <span id="iProg">1/7</span></span>
+        <span>⭐ <span class="num" id="iScore">0</span>점</span>
+      </div>
+      <div class="life-bar" id="iLife"></div>
+      <div class="quiz-box" id="iQuiz">
+        <div class="card-num" id="iNum">문제 1</div>
+        <div class="timer-text" id="iTimerText"></div>
+        <div class="timer-wrap"><div class="timer-bar" id="iTimerBar"></div></div>
+        <div class="quiz-word" id="iTitle" style="font-size:clamp(1.2rem,4vw,1.5rem);"></div>
+        <div class="quiz-desc" id="iDesc" style="font-size:clamp(.9rem,2.5vw,1.05rem);color:rgba(255,255,255,.55);"></div>
+        <div class="combo-display" id="iCombo"></div>
+        <div class="interact-choices" id="iChoices"></div>
+        <div class="feedback" id="iFb"></div>
+      </div>
+      <div class="result-area" id="iResult" style="display:none;"></div>
     </div>
-    <div class="result-area" id="iResult" style="display:none;"></div>
   </div>
 
-  <!-- ========== BINGO ========== -->
+  <!-- ===== BINGO ===== -->
   <div class="game-section" id="secBingo">
     <div class="bingo-info">
       <div class="bingo-count">빙고: <span id="bCount">0</span> / 2</div>
@@ -265,165 +262,132 @@ body{font-family:'Gaegu',cursive;background:#0f1629;min-height:100vh;min-height:
   </div>
 </div>
 
-<!-- Win Overlay -->
-<div class="win-overlay" id="winOverlay">
-  <div class="win-box">
-    <div class="trophy">🏆</div>
-    <h2>투빙고 달성!</h2>
-    <p id="winMsg">축하합니다!</p>
-    <div class="btn-row">
-      <button class="cbtn" onclick="captureBingo()">📸 결과 캡처</button>
-      <button class="rbtn" onclick="closeWin()" style="border-color:#FFD54F;color:#FFD54F;">🎮 다시 하기</button>
-    </div>
-  </div>
-</div>
+<div class="win-overlay" id="winOverlay"><div class="win-box"><div class="trophy">🏆</div><h2>투빙고 달성!</h2><p id="winMsg">축하합니다!</p><div class="btn-row"><button class="cbtn" onclick="captureBingo()">📸 결과 캡처</button><button class="rbtn" onclick="closeWin()" style="border-color:#FFD54F;color:#FFD54F;">🎮 다시 하기</button></div></div></div>
 
-<!-- Game Over Overlay -->
-<div class="gameover-overlay" id="goOverlay">
-  <div class="gameover-box">
-    <div style="font-size:4rem;">💀</div>
-    <h2>게임 오버!</h2>
-    <p id="goMsg">생명이 모두 소진되었어요!</p>
-    <p id="goScore" style="color:#FFD54F;"></p>
-    <div class="btn-row">
-      <button class="rbtn" id="goRetry" style="border-color:var(--wrong);color:var(--wrong);">🔄 다시 도전!</button>
-    </div>
-  </div>
-</div>
+<div class="gameover-overlay" id="goOverlay"><div class="gameover-box"><div style="font-size:4rem;">💀</div><h2>게임 오버!</h2><p id="goMsg"></p><p id="goScore" style="color:#FFD54F;"></p><div class="btn-row"><button class="rbtn" id="goRetry" style="border-color:var(--wrong);color:var(--wrong);">🔄 다시 도전!</button></div></div></div>
 
 <script>
 const CARD_ITEMS=[
-  {word:'화강암',cat:'지권',hint:'마그마가 천천히 식어 만들어진 암석이에요'},
-  {word:'맨틀',cat:'지권',hint:'지각 아래 약 2900km 두께의 층이에요'},
-  {word:'현무암',cat:'지권',hint:'화산에서 용암이 빠르게 식어 만들어진 암석이에요'},
-  {word:'지진',cat:'지권',hint:'땅이 갑자기 흔들리는 현상이에요'},
-  {word:'흙',cat:'지권',hint:'암석이 오랜 시간 풍화되어 만들어진 것이에요'},
-  {word:'석영',cat:'지권',hint:'화강암을 이루는 대표적인 광물이에요'},
-  {word:'용암',cat:'지권',hint:'마그마가 지표로 나온 것이에요'},
-  {word:'지각',cat:'지권',hint:'지구의 가장 바깥쪽 고체 층이에요'},
-  {word:'바다',cat:'수권',hint:'지구 표면의 약 71%를 덮고 있어요'},
-  {word:'빙하',cat:'수권',hint:'남극·북극에 있는 거대한 얼음 덩어리예요'},
-  {word:'지하수',cat:'수권',hint:'땅속 암석 틈에 있는 물이에요'},
-  {word:'해류',cat:'수권',hint:'바닷물이 일정한 방향으로 흐르는 것이에요'},
-  {word:'호수',cat:'수권',hint:'땅 위에 고여 있는 넓은 물이에요'},
-  {word:'구름',cat:'수권',hint:'작은 물방울이나 얼음 알갱이가 모인 것이에요'},
-  {word:'폭포',cat:'수권',hint:'높은 곳에서 떨어지는 물줄기예요'},
-  {word:'강',cat:'수권',hint:'한강, 낙동강처럼 흐르는 물이에요'},
-  {word:'질소',cat:'기권',hint:'대기의 약 78%를 차지하는 기체예요'},
-  {word:'산소',cat:'기권',hint:'대기의 약 21%를 차지하며 호흡에 필요해요'},
-  {word:'오존층',cat:'기권',hint:'성층권에서 자외선을 막아주는 층이에요'},
-  {word:'바람',cat:'기권',hint:'공기가 기압 차이로 움직이는 것이에요'},
-  {word:'대기압',cat:'기권',hint:'공기의 무게로 인해 생기는 압력이에요'},
-  {word:'미세먼지',cat:'기권',hint:'대기 중에 떠다니는 아주 작은 입자예요'},
-  {word:'성층권',cat:'기권',hint:'대류권 위에 있는 안정한 대기층이에요'},
-  {word:'이산화탄소',cat:'기권',hint:'온실 효과를 일으키는 대기 중 기체예요'},
-  {word:'나무',cat:'생물권',hint:'숲을 이루는 큰 식물이에요'},
-  {word:'세균',cat:'생물권',hint:'눈에 안 보이는 아주 작은 단세포 생물이에요'},
-  {word:'산호',cat:'생물권',hint:'바닷속에서 군체를 이루는 동물이에요'},
-  {word:'곰팡이',cat:'생물권',hint:'균류에 속하는 생물이에요'},
-  {word:'물고기',cat:'생물권',hint:'아가미로 호흡하며 물속에서 사는 동물이에요'},
-  {word:'해조류',cat:'생물권',hint:'바다에서 광합성을 하는 식물성 생물이에요'},
-  {word:'플랑크톤',cat:'생물권',hint:'물속에 떠다니며 사는 작은 생물이에요'},
-  {word:'버섯',cat:'생물권',hint:'균류에 속하며 포자로 번식하는 생물이에요'},
-  {word:'태양',cat:'외권',hint:'지구에 빛과 열을 주는 항성이에요'},
-  {word:'달',cat:'외권',hint:'지구 주위를 공전하는 위성이에요'},
-  {word:'소행성',cat:'외권',hint:'태양 주위를 도는 작은 천체예요'},
-  {word:'혜성',cat:'외권',hint:'긴 꼬리를 가진 얼음과 먼지의 천체예요'},
-  {word:'운석',cat:'외권',hint:'우주에서 지구로 떨어진 돌이에요'},
-  {word:'태양풍',cat:'외권',hint:'태양에서 나오는 전하 입자의 흐름이에요'},
-  {word:'별',cat:'외권',hint:'밤하늘에서 반짝이는 항성이에요'},
-  {word:'자외선',cat:'외권',hint:'태양에서 오는 눈에 보이지 않는 빛이에요'},
+{word:'화강암',cat:'지권',hint:'마그마가 천천히 식어 만들어진 암석이에요'},
+{word:'맨틀',cat:'지권',hint:'지각 아래 약 2900km 두께의 층이에요'},
+{word:'현무암',cat:'지권',hint:'화산에서 용암이 빠르게 식어 만들어진 암석이에요'},
+{word:'지진',cat:'지권',hint:'땅이 갑자기 흔들리는 현상이에요'},
+{word:'흙',cat:'지권',hint:'암석이 오랜 시간 풍화되어 만들어진 것이에요'},
+{word:'석영',cat:'지권',hint:'화강암을 이루는 대표적인 광물이에요'},
+{word:'용암',cat:'지권',hint:'마그마가 지표로 나온 것이에요'},
+{word:'지각',cat:'지권',hint:'지구의 가장 바깥쪽 고체 층이에요'},
+{word:'바다',cat:'수권',hint:'지구 표면의 약 71%를 덮고 있어요'},
+{word:'빙하',cat:'수권',hint:'남극·북극에 있는 거대한 얼음 덩어리예요'},
+{word:'지하수',cat:'수권',hint:'땅속 암석 틈에 있는 물이에요'},
+{word:'해류',cat:'수권',hint:'바닷물이 일정한 방향으로 흐르는 것이에요'},
+{word:'호수',cat:'수권',hint:'땅 위에 고여 있는 넓은 물이에요'},
+{word:'구름',cat:'수권',hint:'작은 물방울이나 얼음 알갱이가 모인 것이에요'},
+{word:'폭포',cat:'수권',hint:'높은 곳에서 떨어지는 물줄기예요'},
+{word:'강',cat:'수권',hint:'한강, 낙동강처럼 흐르는 물이에요'},
+{word:'질소',cat:'기권',hint:'대기의 약 78%를 차지하는 기체예요'},
+{word:'산소',cat:'기권',hint:'대기의 약 21%를 차지하며 호흡에 필요해요'},
+{word:'오존층',cat:'기권',hint:'성층권에서 자외선을 막아주는 층이에요'},
+{word:'바람',cat:'기권',hint:'공기가 기압 차이로 움직이는 것이에요'},
+{word:'대기압',cat:'기권',hint:'공기의 무게로 인해 생기는 압력이에요'},
+{word:'미세먼지',cat:'기권',hint:'대기 중에 떠다니는 아주 작은 입자예요'},
+{word:'성층권',cat:'기권',hint:'대류권 위에 있는 안정한 대기층이에요'},
+{word:'이산화탄소',cat:'기권',hint:'온실 효과를 일으키는 대기 중 기체예요'},
+{word:'나무',cat:'생물권',hint:'숲을 이루는 큰 식물이에요'},
+{word:'세균',cat:'생물권',hint:'눈에 안 보이는 아주 작은 단세포 생물이에요'},
+{word:'산호',cat:'생물권',hint:'바닷속에서 군체를 이루는 동물이에요'},
+{word:'곰팡이',cat:'생물권',hint:'균류에 속하는 생물이에요'},
+{word:'물고기',cat:'생물권',hint:'아가미로 호흡하며 물속에서 사는 동물이에요'},
+{word:'해조류',cat:'생물권',hint:'바다에서 광합성을 하는 식물성 생물이에요'},
+{word:'플랑크톤',cat:'생물권',hint:'물속에 떠다니며 사는 작은 생물이에요'},
+{word:'버섯',cat:'생물권',hint:'균류에 속하며 포자로 번식하는 생물이에요'},
+{word:'태양',cat:'외권',hint:'지구에 빛과 열을 주는 항성이에요'},
+{word:'달',cat:'외권',hint:'지구 주위를 공전하는 위성이에요'},
+{word:'소행성',cat:'외권',hint:'태양 주위를 도는 작은 천체예요'},
+{word:'혜성',cat:'외권',hint:'긴 꼬리를 가진 얼음과 먼지의 천체예요'},
+{word:'운석',cat:'외권',hint:'우주에서 지구로 떨어진 돌이에요'},
+{word:'태양풍',cat:'외권',hint:'태양에서 나오는 전하 입자의 흐름이에요'},
+{word:'별',cat:'외권',hint:'밤하늘에서 반짝이는 항성이에요'},
+{word:'자외선',cat:'외권',hint:'태양에서 오는 눈에 보이지 않는 빛이에요'},
 ];
-
 const INTERACT_ITEMS=[
-  {title:'화산 폭발로 인한 기온 하강',desc:'화산이 폭발할 때 분출된 화산재가 햇빛을 가려 지구의 기온이 낮아지는 현상',answer:'지권 ↔ 기권',wrong:'지권 ↔ 외권',explain:'화산(지권)에서 나온 화산재가 대기(기권)에 영향을 주는 상호작용이에요.'},
-  {title:'강물에 의한 지형 변화',desc:'강물이 흐르면서 깎고 운반하여 계곡이 만들어지는 현상',answer:'수권 ↔ 지권',wrong:'수권 ↔ 기권',explain:'물(수권)이 땅(지권)을 깎아 지형을 변화시키는 상호작용이에요.'},
-  {title:'물의 증발과 비',desc:'바다의 물이 증발하여 대기로 이동하고, 구름이 되어 다시 비로 내리는 현상',answer:'수권 ↔ 기권',wrong:'수권 ↔ 외권',explain:'물(수권)이 대기(기권) 중으로 증발하고 다시 비로 내리는 물의 순환이에요.'},
-  {title:'유성 (별똥별)',desc:'우주의 물질이 지구 대기로 들어와 마찰로 타면서 빛을 내는 현상',answer:'외권 ↔ 기권',wrong:'외권 ↔ 지권',explain:'우주 물질(외권)이 대기(기권)에 진입하면서 빛을 내는 상호작용이에요.'},
-  {title:'식물 뿌리에 의한 암석 풍화',desc:'식물의 뿌리가 바위 틈새로 자라면서 암석을 부수는 현상',answer:'생물권 ↔ 지권',wrong:'생물권 ↔ 수권',explain:'식물(생물권)이 암석(지권)을 부수어 풍화시키는 상호작용이에요.'},
-  {title:'바람에 의한 씨앗 이동',desc:'바람을 이용해 민들레 씨앗이 널리 퍼지는 현상',answer:'기권 ↔ 생물권',wrong:'기권 ↔ 수권',explain:'대기(기권)의 바람이 생물(생물권)의 번식을 도와주는 상호작용이에요.'},
-  {title:'물속 생물의 서식',desc:'물고기 등 다양한 생물이 물속에서 살아가는 현상',answer:'수권 ↔ 생물권',wrong:'지권 ↔ 생물권',explain:'물(수권)이 생물(생물권)에게 서식지를 제공하는 상호작용이에요.'},
+{title:'화산 폭발로 인한 기온 하강',desc:'화산이 폭발할 때 분출된 화산재가 햇빛을 가려 지구의 기온이 낮아지는 현상',answer:'지권 ↔ 기권',wrong:'지권 ↔ 외권',explain:'화산(지권)에서 나온 화산재가 대기(기권)에 영향을 주는 상호작용이에요.'},
+{title:'강물에 의한 지형 변화',desc:'강물이 흐르면서 깎고 운반하여 계곡이 만들어지는 현상',answer:'수권 ↔ 지권',wrong:'수권 ↔ 기권',explain:'물(수권)이 땅(지권)을 깎아 지형을 변화시키는 상호작용이에요.'},
+{title:'물의 증발과 비',desc:'바다의 물이 증발하여 대기로 이동하고, 구름이 되어 다시 비로 내리는 현상',answer:'수권 ↔ 기권',wrong:'수권 ↔ 외권',explain:'물(수권)이 대기(기권) 중으로 증발하고 다시 비로 내리는 물의 순환이에요.'},
+{title:'유성 (별똥별)',desc:'우주의 물질이 지구 대기로 들어와 마찰로 타면서 빛을 내는 현상',answer:'외권 ↔ 기권',wrong:'외권 ↔ 지권',explain:'우주 물질(외권)이 대기(기권)에 진입하면서 빛을 내는 상호작용이에요.'},
+{title:'식물 뿌리에 의한 암석 풍화',desc:'식물의 뿌리가 바위 틈새로 자라면서 암석을 부수는 현상',answer:'생물권 ↔ 지권',wrong:'생물권 ↔ 수권',explain:'식물(생물권)이 암석(지권)을 부수어 풍화시키는 상호작용이에요.'},
+{title:'바람에 의한 씨앗 이동',desc:'바람을 이용해 민들레 씨앗이 널리 퍼지는 현상',answer:'기권 ↔ 생물권',wrong:'기권 ↔ 수권',explain:'대기(기권)의 바람이 생물(생물권)의 번식을 도와주는 상호작용이에요.'},
+{title:'물속 생물의 서식',desc:'물고기 등 다양한 생물이 물속에서 살아가는 현상',answer:'수권 ↔ 생물권',wrong:'지권 ↔ 생물권',explain:'물(수권)이 생물(생물권)에게 서식지를 제공하는 상호작용이에요.'},
 ];
-
 const CAT_INFO={'지권':{icon:'🏔️',cls:'cg',tcls:'geo'},'수권':{icon:'🌊',cls:'ch',tcls:'hydro'},'기권':{icon:'💨',cls:'ca',tcls:'atmo'},'생물권':{icon:'🌿',cls:'cb',tcls:'bio'},'외권':{icon:'☀️',cls:'ce',tcls:'exo'}};
 const OK_MSG=['정답! 천재?! 🎉','맞았어요! 🌟','완벽! 🧑‍🔬','딩동댕! 🔔','오~ 역시! 👏','센스 만점! ✨','척척박사! 🎓'];
 const NO_MSG=['아쉬워요! 💪','땡! 🤔','아깝다~ 😅','헷갈릴 수 있어요! 😊'];
 const COMBO_MSG={3:'🔥 3 COMBO!',5:'🔥🔥 5 COMBO!',7:'🔥🔥🔥 7 COMBO!',10:'💎 10 COMBO! 전설!',15:'👑 15 COMBO! 신이시여!'};
-const TIME_LIMIT=10;
 
 function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
 function pick(a){return a[Math.floor(Math.random()*a.length)];}
 function $(id){return document.getElementById(id);}
 function showToast(m){const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
-function screenShake(){$('mainContainer').classList.add('screen-shake');setTimeout(()=>$('mainContainer').classList.remove('screen-shake'),400);}
+function screenShake(){const mc=$('mainContainer');mc.classList.remove('screen-shake');void mc.offsetWidth;mc.classList.add('screen-shake');setTimeout(()=>mc.classList.remove('screen-shake'),400);}
 
 (function(){const c=$('stars');for(let i=0;i<60;i++){const s=document.createElement('div');s.className='star';const sz=Math.random()*3+1;s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*2}s;animation-duration:${Math.random()*2+1}s;`;c.appendChild(s);}})();
 
-function go(tab){
-  // 다른 게임의 타이머·효과 즉시 정지
+// ===== 전역 정리 함수 =====
+function killAllGameEffects(){
   stopTimer();
-  cAns=true; iAns=true; // 진행 중 답변 콜백 무효화
   if(window._cNext){clearTimeout(window._cNext);window._cNext=null;}
   if(window._iNext){clearTimeout(window._iNext);window._iNext=null;}
+  cAns=true; iAns=true;
   $('mainContainer').classList.remove('screen-shake');
+}
 
+function go(tab){
+  killAllGameEffects();
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',(tab==='card'&&i===0)||(tab==='interact'&&i===1)||(tab==='bingo'&&i===2)));
   $('secCard').classList.toggle('active',tab==='card');
   $('secInteract').classList.toggle('active',tab==='interact');
   $('secBingo').classList.toggle('active',tab==='bingo');
+  // 탭 전환 시 인트로 화면으로 리셋
+  if(tab==='card'){$('cIntro').style.display='block';$('cGameArea').style.display='none';}
+  if(tab==='interact'){$('iIntro').style.display='block';$('iGameArea').style.display='none';}
 }
 
-// ===== LIFE SYSTEM =====
-function renderLife(id,lives,max){
-  const el=$(id);el.innerHTML='';
-  for(let i=0;i<max;i++){const h=document.createElement('span');h.className='heart'+(i>=lives?' lost':'');h.textContent='❤️';el.appendChild(h);}
-}
-function loseLife(id,lives,max){
-  renderLife(id,lives,max);
-  const hearts=$(id).children;
-  if(hearts[lives])hearts[lives].classList.add('breaking');
-  screenShake();
-}
+// ===== LIFE =====
+function renderLife(id,lives,max){const el=$(id);el.innerHTML='';for(let i=0;i<max;i++){const h=document.createElement('span');h.className='heart'+(i>=lives?' lost':'');h.textContent='❤️';el.appendChild(h);}}
+function loseLife(id,lives,max){renderLife(id,lives,max);const h=$(id).children;if(h[lives])h[lives].classList.add('breaking');screenShake();}
 
 // ===== TIMER =====
 function startTimer(barId,textId,sec,onTimeout){
   const bar=$(barId),txt=$(textId);
-  let remaining=sec*10;const total=sec*10;
-  if(window._timer)clearInterval(window._timer);
+  let rem=sec*10;const tot=sec*10;
+  stopTimer();
   window._timer=setInterval(()=>{
-    remaining--;
-    const pct=(remaining/total)*100;
+    rem--;const pct=(rem/tot)*100;
     bar.style.width=pct+'%';
     bar.className='timer-bar'+(pct<=30?' danger':pct<=50?' warn':'');
-    const s=Math.ceil(remaining/10);
+    const s=Math.ceil(rem/10);
     txt.textContent=s<=3&&s>0?`⏰ ${s}초!`:(s>0?`${s}초`:'');
-    if(remaining<=0){clearInterval(window._timer);window._timer=null;onTimeout();}
+    if(rem<=0){clearInterval(window._timer);window._timer=null;onTimeout();}
   },100);
   bar.style.width='100%';bar.className='timer-bar';
 }
 function stopTimer(){if(window._timer){clearInterval(window._timer);window._timer=null;}}
-
-// ===== SPEED BONUS =====
-function showSpeedBonus(box,pts){
-  const el=document.createElement('div');el.className='speed-bonus';el.textContent=`+${pts} 스피드!`;
-  box.appendChild(el);setTimeout(()=>el.remove(),1000);
-}
+function showSpeedBonus(box,pts){const el=document.createElement('div');el.className='speed-bonus';el.textContent=`+${pts} 스피드!`;box.appendChild(el);setTimeout(()=>el.remove(),1000);}
 
 // ========== CARD GAME ==========
-let cItems=[],cIdx=0,cSc=0,cOk=0,cTot=0,cCombo=0,cAns=false,cLives=3,cMaxLives=3,cHintUsed=false;
+let cItems=[],cIdx=0,cSc=0,cOk=0,cTot=0,cCombo=0,cAns=true,cLives=3,cMaxLives=3,cHintUsed=false;
+
+function cStart(){
+  $('cIntro').style.display='none';$('cGameArea').style.display='block';
+  cInit();
+}
 
 function cInit(){
-  const byCat={};
-  CARD_ITEMS.forEach(it=>{if(!byCat[it.cat])byCat[it.cat]=[];byCat[it.cat].push(it);});
-  let sel=[];
-  Object.values(byCat).forEach(items=>{const s=shuffle(items);sel.push(s[0],s[1],s[2]);});
-  const rem=CARD_ITEMS.filter(it=>!sel.includes(it));
-  sel.push(shuffle(rem)[0]);
-  cItems=shuffle(sel);
-  cIdx=0;cSc=0;cOk=0;cTot=0;cCombo=0;cAns=false;cLives=cMaxLives;cHintUsed=false;
+  const byCat={};CARD_ITEMS.forEach(it=>{if(!byCat[it.cat])byCat[it.cat]=[];byCat[it.cat].push(it);});
+  let sel=[];Object.values(byCat).forEach(items=>{const s=shuffle(items);sel.push(s[0],s[1],s[2]);});
+  sel.push(shuffle(CARD_ITEMS.filter(it=>!sel.includes(it)))[0]);
+  cItems=shuffle(sel);cIdx=0;cSc=0;cOk=0;cTot=0;cCombo=0;cLives=cMaxLives;cHintUsed=false;
   $('cResult').style.display='none';$('cQuiz').style.display='block';
-  renderLife('cLife',cLives,cMaxLives);
-  cShow();
+  renderLife('cLife',cLives,cMaxLives);cShow();
 }
 
 function cShow(){
@@ -438,55 +402,40 @@ function cShow(){
   $('cHintBtn').style.display='inline-block';
   $('cProg').textContent=`${cIdx+1}/${cItems.length}`;
   document.querySelectorAll('#secCard .choice-btn').forEach(b=>{b.className='choice-btn';b.disabled=false;});
-  cUpdCombo();
-  $('cScore').textContent=cSc;$('cAcc').textContent=cTot>0?Math.round(cOk/cTot*100):0;
+  cUpdCombo();$('cScore').textContent=cSc;$('cAcc').textContent=cTot>0?Math.round(cOk/cTot*100):0;
   window._cStart=Date.now();
-  startTimer('cTimerBar','cTimerText',TIME_LIMIT,()=>{cTimeout();});
+  startTimer('cTimerBar','cTimerText',10,()=>{if(!cAns)cTimeout();});
 }
 
 function cTimeout(){
-  if(cAns)return;cAns=true;cTot++;cCombo=0;cLives--;
+  cAns=true;cTot++;cCombo=0;cLives--;
   loseLife('cLife',cLives,cMaxLives);
   const it=cItems[cIdx];
   $('cFb').textContent=`⏰ 시간 초과! 정답: ${CAT_INFO[it.cat].icon} ${it.cat}`;$('cFb').className='feedback no';
   $('cHintBtn').style.display='none';
-  document.querySelectorAll('#secCard .choice-btn').forEach(b=>{b.disabled=true;const bc=b.getAttribute('data-cat');if(bc===it.cat)b.classList.add('correct');});
-  cUpdCombo();
-  $('cAcc').textContent=Math.round(cOk/cTot*100);
-  window._cNext=setTimeout(()=>{window._cNext=null;cIdx++;cShow();},1800);
+  document.querySelectorAll('#secCard .choice-btn').forEach(b=>{b.disabled=true;if(b.getAttribute('data-cat')===it.cat)b.classList.add('correct');});
+  cUpdCombo();$('cAcc').textContent=Math.round(cOk/cTot*100);
+  window._cNext=setTimeout(()=>{window._cNext=null;cIdx++;cShow();},1600);
 }
 
 function cAnswer(choice){
   if(cAns)return;cAns=true;stopTimer();cTot++;
   const it=cItems[cIdx],ok=choice===it.cat;
   const elapsed=(Date.now()-window._cStart)/1000;
-
-  document.querySelectorAll('#secCard .choice-btn').forEach(b=>{
-    b.disabled=true;const bc=b.getAttribute('data-cat');
-    if(bc===it.cat)b.classList.add('correct');
-    if(bc===choice&&!ok)b.classList.add('wrong');
-  });
-
+  document.querySelectorAll('#secCard .choice-btn').forEach(b=>{b.disabled=true;const bc=b.getAttribute('data-cat');if(bc===it.cat)b.classList.add('correct');if(bc===choice&&!ok)b.classList.add('wrong');});
   const fb=$('cFb');
   if(ok){
-    cCombo++;cOk++;
-    let pts=10;
-    if(elapsed<3)pts+=5; else if(elapsed<5)pts+=3; else if(elapsed<7)pts+=1;
-    const comboBonus=cCombo>=3?cCombo:0;
-    pts+=comboBonus;
+    cCombo++;cOk++;let pts=10;
+    if(elapsed<3)pts+=5;else if(elapsed<5)pts+=3;else if(elapsed<7)pts+=1;
+    pts+=(cCombo>=3?cCombo:0);
     if(cHintUsed)pts=Math.max(pts-3,1);
-    cSc+=pts;
-    fb.textContent=pick(OK_MSG);fb.className='feedback ok';
-    if(elapsed<3)showSpeedBonus($('cQuiz'),5);
-    else if(elapsed<5)showSpeedBonus($('cQuiz'),3);
-  } else {
-    cCombo=0;cLives--;
-    loseLife('cLife',cLives,cMaxLives);
+    cSc+=pts;fb.textContent=pick(OK_MSG);fb.className='feedback ok';
+    if(elapsed<3)showSpeedBonus($('cQuiz'),5);else if(elapsed<5)showSpeedBonus($('cQuiz'),3);
+  }else{
+    cCombo=0;cLives--;loseLife('cLife',cLives,cMaxLives);
     fb.textContent=`${pick(NO_MSG)} → ${CAT_INFO[it.cat].icon} ${it.cat}`;fb.className='feedback no';
   }
-  $('cScore').textContent=cSc;$('cAcc').textContent=Math.round(cOk/cTot*100);
-  $('cHintBtn').style.display='none';
-  cUpdCombo();
+  $('cScore').textContent=cSc;$('cAcc').textContent=Math.round(cOk/cTot*100);$('cHintBtn').style.display='none';cUpdCombo();
   window._cNext=setTimeout(()=>{window._cNext=null;cIdx++;cShow();},1600);
 }
 
@@ -494,59 +443,36 @@ function cShowHint(){$('cHint').textContent=`💡 ${cItems[cIdx].hint}`;$('cHint
 function cUpdCombo(){const e=$('cCombo');if(COMBO_MSG[cCombo]){e.textContent=COMBO_MSG[cCombo];e.className='combo-display combo-pop';}else if(cCombo>=2){e.textContent=`🔥 ${cCombo} COMBO!`;e.className='combo-display combo-pop';}else{e.textContent='';e.className='combo-display';}}
 
 function cGameOver(){
-  stopTimer();
-  $('cQuiz').style.display='none';
-  $('goMsg').textContent=`${cOk}/${cTot} 정답 · 생명 소진!`;
-  $('goScore').textContent=`최종 점수: ${cSc}점`;
+  killAllGameEffects();$('cQuiz').style.display='none';
+  $('goMsg').textContent=`${cOk}/${cTot} 정답 · 생명 소진!`;$('goScore').textContent=`최종 점수: ${cSc}점`;
   $('goRetry').onclick=()=>{$('goOverlay').classList.remove('show');cInit();};
-  $('goOverlay').classList.add('show');
-  screenShake();
+  $('goOverlay').classList.add('show');screenShake();
 }
 
 function cFinish(){
-  stopTimer();$('cQuiz').style.display='none';
+  killAllGameEffects();$('cQuiz').style.display='none';
   const r=$('cResult');r.style.display='block';
-  const acc=Math.round(cOk/cTot*100);
-  let g,gm,em;
+  const acc=Math.round(cOk/cTot*100);let g,gm,em;
   if(acc>=90){g='S';gm='지구계의 신! 완벽해요!';em='🏆';}
   else if(acc>=75){g='A';gm='대단해요! 거의 마스터!';em='🌟';}
   else if(acc>=60){g='B';gm='좋아요! 조금만 더!';em='👍';}
   else if(acc>=40){g='C';gm='힘내요! 복습하면 할 수 있어요!';em='💪';}
   else{g='D';gm='다시 도전해봐요!';em='📚';}
-  r.innerHTML=`
-    <div style="font-size:3.2rem;">${em}</div>
-    <div class="grade">${g}</div>
-    <div style="font-family:'Jua';font-size:1.2rem;color:rgba(255,255,255,.75);margin-bottom:4px;">${gm}</div>
-    <div style="font-family:'Jua';font-size:.95rem;color:rgba(255,255,255,.5);margin-bottom:4px;">${cOk}/${cTot} 정답 · ${cSc}점 · 정확도 ${acc}%</div>
-    <div style="font-family:'Gaegu';font-size:.85rem;color:rgba(255,255,255,.3);margin-bottom:12px;">❤️ 남은 생명: ${cLives}/${cMaxLives}</div>
-    <div style="font-family:'Black Han Sans';font-size:1.1rem;color:#FFD54F;margin:14px 0 6px;">📋 지구계 구성요소 정리표</div>
-    ${buildSummaryTable()}
-    <div class="btn-row" style="margin-top:14px;">
-      <button class="cbtn" onclick="captureCardResult()">📸 결과 캡처</button>
-      <button class="rbtn" onclick="cInit()" style="border-color:#FFD54F;color:#FFD54F;">🔄 다시 도전</button>
-      <button class="rbtn" onclick="go('interact')">🔄 상호작용 GO!</button>
-    </div>`;
+  r.innerHTML=`<div style="font-size:3.2rem;">${em}</div><div class="grade">${g}</div><div style="font-family:'Jua';font-size:1.2rem;color:rgba(255,255,255,.75);margin-bottom:4px;">${gm}</div><div style="font-family:'Jua';font-size:.95rem;color:rgba(255,255,255,.5);margin-bottom:4px;">${cOk}/${cTot} 정답 · ${cSc}점 · 정확도 ${acc}%</div><div style="font-family:'Gaegu';font-size:.85rem;color:rgba(255,255,255,.3);margin-bottom:12px;">❤️ 남은 생명: ${cLives}/${cMaxLives}</div><div style="font-family:'Black Han Sans';font-size:1.1rem;color:#FFD54F;margin:14px 0 6px;">📋 지구계 구성요소 정리표</div>${buildSummaryTable()}<div class="btn-row" style="margin-top:14px;"><button class="cbtn" onclick="captureCardResult()">📸 결과 캡처</button><button class="rbtn" onclick="cInit()" style="border-color:#FFD54F;color:#FFD54F;">🔄 다시 도전</button><button class="rbtn" onclick="go('interact')">🔄 상호작용 퀴즈 GO!</button></div>`;
   if(acc>=75)confetti();
 }
-
-function buildSummaryTable(){
-  const d=[
-    {cat:'지권',icon:'🏔️',cls:'geo',ex:'화강암, 현무암, 맨틀, 지각, 흙(토양), 광물(석영), 용암, 지진'},
-    {cat:'수권',icon:'🌊',cls:'hydro',ex:'바다, 강, 호수, 빙하, 지하수, 해류, 폭포, 구름(물방울 모임)'},
-    {cat:'기권',icon:'💨',cls:'atmo',ex:'질소, 산소, 이산화탄소, 오존층, 바람, 대기압, 성층권, 미세먼지'},
-    {cat:'생물권',icon:'🌿',cls:'bio',ex:'나무, 물고기, 산호, 세균, 곰팡이, 버섯, 해조류, 플랑크톤'},
-    {cat:'외권',icon:'☀️',cls:'exo',ex:'태양, 달, 별, 소행성, 혜성, 운석, 태양풍, 자외선'},
-  ];
-  let h='<table class="summary-table"><thead><tr><th>구성요소</th><th>예시</th></tr></thead><tbody>';
-  d.forEach(x=>{h+=`<tr><td><span class="cat-label ${x.cls}">${x.icon} ${x.cat}</span></td><td>${x.ex}</td></tr>`;});
-  return h+'</tbody></table>';
-}
+function buildSummaryTable(){const d=[{cat:'지권',icon:'🏔️',cls:'geo',ex:'화강암, 현무암, 맨틀, 지각, 흙(토양), 광물(석영), 용암, 지진'},{cat:'수권',icon:'🌊',cls:'hydro',ex:'바다, 강, 호수, 빙하, 지하수, 해류, 폭포, 구름(물방울 모임)'},{cat:'기권',icon:'💨',cls:'atmo',ex:'질소, 산소, 이산화탄소, 오존층, 바람, 대기압, 성층권, 미세먼지'},{cat:'생물권',icon:'🌿',cls:'bio',ex:'나무, 물고기, 산호, 세균, 곰팡이, 버섯, 해조류, 플랑크톤'},{cat:'외권',icon:'☀️',cls:'exo',ex:'태양, 달, 별, 소행성, 혜성, 운석, 태양풍, 자외선'},];let h='<table class="summary-table"><thead><tr><th>구성요소</th><th>예시</th></tr></thead><tbody>';d.forEach(x=>{h+=`<tr><td><span class="cat-label ${x.cls}">${x.icon} ${x.cat}</span></td><td>${x.ex}</td></tr>`;});return h+'</tbody></table>';}
 
 // ========== INTERACTION QUIZ ==========
-let iItems=[],iIdx=0,iSc=0,iAns=false,iCombo=0,iLives=3,iMaxLives=3;
+let iItems=[],iIdx=0,iSc=0,iAns=true,iCombo=0,iLives=3,iMaxLives=3;
+
+function iStart(){
+  $('iIntro').style.display='none';$('iGameArea').style.display='block';
+  iInit();
+}
 
 function iInit(){
-  iItems=shuffle([...INTERACT_ITEMS]);iIdx=0;iSc=0;iAns=false;iCombo=0;iLives=iMaxLives;
+  iItems=shuffle([...INTERACT_ITEMS]);iIdx=0;iSc=0;iCombo=0;iLives=iMaxLives;
   $('iResult').style.display='none';$('iQuiz').style.display='block';
   renderLife('iLife',iLives,iMaxLives);iShow();
 }
@@ -559,22 +485,17 @@ function iShow(){
   const t=$('iTitle');t.textContent=it.title;t.style.animation='none';
   requestAnimationFrame(()=>{t.style.animation='popIn .4s ease';});
   $('iDesc').textContent=it.desc;$('iFb').textContent='';$('iFb').className='feedback';
-  $('iProg').textContent=`${iIdx+1}/${iItems.length}`;$('iScore').textContent=iSc;
-  iUpdCombo();
+  $('iProg').textContent=`${iIdx+1}/${iItems.length}`;$('iScore').textContent=iSc;iUpdCombo();
   window._iStart=Date.now();
-  startTimer('iTimerBar','iTimerText',12,()=>{iTimeout();});
-
+  startTimer('iTimerBar','iTimerText',12,()=>{if(!iAns)iTimeout();});
   const allPairs=['지권 ↔ 기권','수권 ↔ 지권','수권 ↔ 기권','외권 ↔ 기권','생물권 ↔ 지권','기권 ↔ 생물권','수권 ↔ 생물권','외권 ↔ 지권','외권 ↔ 수권','외권 ↔ 생물권'];
-  let choices=[it.answer,it.wrong,...shuffle(allPairs.filter(p=>p!==it.answer&&p!==it.wrong)).slice(0,2)];
-  choices=shuffle(choices);
-
+  let choices=[it.answer,it.wrong,...shuffle(allPairs.filter(p=>p!==it.answer&&p!==it.wrong)).slice(0,2)];choices=shuffle(choices);
   const box=$('iChoices');box.innerHTML='';
   choices.forEach(ch=>{const btn=document.createElement('button');btn.className='interact-btn';btn.textContent=ch;btn.onclick=()=>iAnswer(ch,it);box.appendChild(btn);});
 }
 
 function iTimeout(){
-  if(iAns)return;iAns=true;iCombo=0;iLives--;
-  loseLife('iLife',iLives,iMaxLives);
+  iAns=true;iCombo=0;iLives--;loseLife('iLife',iLives,iMaxLives);
   const it=iItems[iIdx];
   $('iFb').innerHTML=`<span style="color:var(--wrong);">⏰ 시간 초과!</span> ${it.explain}`;
   document.querySelectorAll('.interact-btn').forEach(b=>{b.style.pointerEvents='none';if(b.textContent===it.answer)b.classList.add('correct');});
@@ -587,17 +508,8 @@ function iAnswer(choice,it){
   const elapsed=(Date.now()-window._iStart)/1000;
   document.querySelectorAll('.interact-btn').forEach(b=>{b.style.pointerEvents='none';if(b.textContent===it.answer)b.classList.add('correct');if(b.textContent===choice&&!ok)b.classList.add('wrong');});
   const fb=$('iFb');
-  if(ok){
-    iCombo++;let pts=10;
-    if(elapsed<4)pts+=5;else if(elapsed<7)pts+=2;
-    pts+=(iCombo>=3?iCombo:0);
-    iSc+=pts;
-    fb.innerHTML=`<span style="color:var(--correct);">⭕ 정답!</span> ${it.explain}`;
-    if(elapsed<4)showSpeedBonus($('iQuiz'),5);
-  } else {
-    iCombo=0;iLives--;loseLife('iLife',iLives,iMaxLives);
-    fb.innerHTML=`<span style="color:var(--wrong);">❌ 아쉬워요!</span> ${it.explain}`;
-  }
+  if(ok){iCombo++;let pts=10;if(elapsed<4)pts+=5;else if(elapsed<7)pts+=2;pts+=(iCombo>=3?iCombo:0);iSc+=pts;fb.innerHTML=`<span style="color:var(--correct);">⭕ 정답!</span> ${it.explain}`;if(elapsed<4)showSpeedBonus($('iQuiz'),5);}
+  else{iCombo=0;iLives--;loseLife('iLife',iLives,iMaxLives);fb.innerHTML=`<span style="color:var(--wrong);">❌ 아쉬워요!</span> ${it.explain}`;}
   $('iScore').textContent=iSc;iUpdCombo();
   window._iNext=setTimeout(()=>{window._iNext=null;iIdx++;iShow();},2200);
 }
@@ -605,121 +517,44 @@ function iAnswer(choice,it){
 function iUpdCombo(){const e=$('iCombo');if(COMBO_MSG[iCombo]){e.textContent=COMBO_MSG[iCombo];e.className='combo-display combo-pop';}else if(iCombo>=2){e.textContent=`🔥 ${iCombo} COMBO!`;e.className='combo-display combo-pop';}else{e.textContent='';e.className='combo-display';}}
 
 function iGameOver(){
-  stopTimer();$('iQuiz').style.display='none';
-  $('goMsg').textContent=`${Math.round(iSc/10)}/${iItems.length} 정답 · 생명 소진!`;
-  $('goScore').textContent=`최종 점수: ${iSc}점`;
+  killAllGameEffects();$('iQuiz').style.display='none';
+  $('goMsg').textContent=`${Math.round(iSc/10)}/${iItems.length} 정답 · 생명 소진!`;$('goScore').textContent=`최종 점수: ${iSc}점`;
   $('goRetry').onclick=()=>{$('goOverlay').classList.remove('show');iInit();};
   $('goOverlay').classList.add('show');screenShake();
 }
 
 function iFinish(){
-  stopTimer();$('iQuiz').style.display='none';const r=$('iResult');r.style.display='block';
-  const acc=Math.round(iSc/(iItems.length*10)*100);
-  let em,gm;if(acc>=85){em='🏆';gm='상호작용 완전 정복!';}else if(acc>=57){em='🌟';gm='거의 다 맞았어요!';}else{em='💪';gm='복습하면 할 수 있어요!';}
+  killAllGameEffects();$('iQuiz').style.display='none';const r=$('iResult');r.style.display='block';
+  const acc=Math.round(iSc/(iItems.length*10)*100);let em,gm;
+  if(acc>=85){em='🏆';gm='상호작용 완전 정복!';}else if(acc>=57){em='🌟';gm='거의 다 맞았어요!';}else{em='💪';gm='복습하면 할 수 있어요!';}
   let tbl='<table class="summary-table"><thead><tr><th>상호작용</th><th>예시</th></tr></thead><tbody>';
-  INTERACT_ITEMS.forEach(it=>{tbl+=`<tr><td style="white-space:nowrap;font-weight:bold;color:#FFD54F;">${it.answer}</td><td>${it.title}</td></tr>`;});
-  tbl+='</tbody></table>';
+  INTERACT_ITEMS.forEach(it=>{tbl+=`<tr><td style="white-space:nowrap;font-weight:bold;color:#FFD54F;">${it.answer}</td><td>${it.title}</td></tr>`;});tbl+='</tbody></table>';
   r.innerHTML=`<div style="font-size:3.2rem;">${em}</div><div style="font-family:'Jua';font-size:1.3rem;color:rgba(255,255,255,.8);margin:10px 0;">${gm}</div><div style="font-family:'Jua';font-size:1rem;color:rgba(255,255,255,.5);margin-bottom:12px;">${Math.round(iSc/10)}/${iItems.length} 정답 · ${iSc}점</div><div style="font-family:'Black Han Sans';font-size:1.05rem;color:#FFD54F;margin:12px 0 4px;">🔄 지구계 상호작용 정리표</div>${tbl}<div class="btn-row" style="margin-top:14px;"><button class="cbtn" onclick="captureInteractResult()">📸 결과 캡처</button><button class="rbtn" onclick="iInit()" style="border-color:#FFD54F;color:#FFD54F;">🔄 다시 도전</button><button class="rbtn" onclick="go('bingo')">🎯 빙고 GO!</button></div>`;
   if(acc>=85)confetti();
 }
 
 // ========== BINGO ==========
 let bBoard=[],bMarked=[],bLines=0,bCalled=[],bRemain=[],bWon=false,hostMode=false;
-
-function bInit(){
-  const byCat={};CARD_ITEMS.forEach(it=>{if(!byCat[it.cat])byCat[it.cat]=[];byCat[it.cat].push(it);});
-  let sel=[];Object.keys(byCat).forEach(cat=>{const s=shuffle(byCat[cat]);sel.push(s[0],s[1],s[2]);});
-  sel.push(shuffle(CARD_ITEMS.filter(it=>!sel.includes(it)))[0]);sel=shuffle(sel);
-  bRemain=shuffle([...CARD_ITEMS]);bCalled=[];bBoard=sel;bMarked=Array(16).fill(false);bLines=0;bWon=false;
-  bRender();$('bCount').textContent='0';$('bCalledWord').textContent='';$('bCalledCat').textContent='';$('bHistory').innerHTML='';
-  $('bCallBtn').disabled=false;$('bCallBtn').textContent='📢 단어 뽑기 (진행자용)';
-  $('bCallBtn').style.display=hostMode?'inline-block':'none';
-}
-
+function bInit(){const byCat={};CARD_ITEMS.forEach(it=>{if(!byCat[it.cat])byCat[it.cat]=[];byCat[it.cat].push(it);});let sel=[];Object.keys(byCat).forEach(cat=>{const s=shuffle(byCat[cat]);sel.push(s[0],s[1],s[2]);});sel.push(shuffle(CARD_ITEMS.filter(it=>!sel.includes(it)))[0]);sel=shuffle(sel);bRemain=shuffle([...CARD_ITEMS]);bCalled=[];bBoard=sel;bMarked=Array(16).fill(false);bLines=0;bWon=false;bRender();$('bCount').textContent='0';$('bCalledWord').textContent='';$('bCalledCat').textContent='';$('bHistory').innerHTML='';$('bCallBtn').disabled=false;$('bCallBtn').textContent='📢 단어 뽑기 (진행자용)';$('bCallBtn').style.display=hostMode?'inline-block':'none';}
 function bRender(){const g=$('bGrid');g.innerHTML='';bBoard.forEach((it,i)=>{const c=document.createElement('div');c.className='bingo-cell'+(bMarked[i]?' marked':'');c.id=`bc-${i}`;c.innerHTML=`<div class="cw">${it.word}</div><div class="cc ${CAT_INFO[it.cat].cls}">(${it.cat})</div>`;c.onclick=()=>bToggle(i);g.appendChild(c);});}
-
 function bToggle(i){bMarked[i]=!bMarked[i];$(`bc-${i}`).classList.toggle('marked',bMarked[i]);bCheck();}
-
 function toggleHost(){hostMode=!hostMode;$('bCallBtn').style.display=hostMode?'inline-block':'none';$('hostToggle').textContent=hostMode?'👤 학생 모드':'🎤 진행자 모드';$('hostToggle').style.borderColor=hostMode?'#FFD54F':'';$('hostToggle').style.color=hostMode?'#FFD54F':'';}
-
-function bCall(){
-  if(!bRemain.length)return;
-  const it=bRemain.pop();bCalled.push(it);
-  const w=$('bCalledWord');w.textContent=it.word;w.style.animation='none';requestAnimationFrame(()=>{w.style.animation='popIn .4s ease';});
-  $('bCalledCat').innerHTML=`<span class="${CAT_INFO[it.cat].cls}">${CAT_INFO[it.cat].icon} ${it.cat}</span>`;
-  bBoard.forEach((bi,i)=>{if(bi.word===it.word&&bi.cat===it.cat){bMarked[i]=true;const c=$(`bc-${i}`);if(c)c.classList.add('marked');}});
-  const h=$('bHistory'),ch=document.createElement('span');ch.className='chip';ch.textContent=`${it.word}(${it.cat})`;h.prepend(ch);
-  bCheck();
-  if(!bRemain.length){$('bCallBtn').disabled=true;$('bCallBtn').textContent='모든 단어를 뽑았어요!';}
-}
-
-function bCheck(){
-  const lines=[[0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14,15],[0,4,8,12],[1,5,9,13],[2,6,10,14],[3,7,11,15],[0,5,10,15],[3,6,9,12]];
-  for(let i=0;i<16;i++){const c=$(`bc-${i}`);if(c)c.classList.remove('bingo-line');}
-  let cnt=0;lines.forEach(l=>{if(l.every(i=>bMarked[i])){cnt++;l.forEach(i=>{const c=$(`bc-${i}`);if(c)c.classList.add('bingo-line');});}});
-  bLines=cnt;$('bCount').textContent=bLines;
-  if(bLines>=2&&!bWon){bWon=true;confetti();if(hostMode){showToast('🏆 투빙고 달성! 단어 뽑기는 계속됩니다');}else{setTimeout(()=>{showWin();},500);}}
-}
-
+function bCall(){if(!bRemain.length)return;const it=bRemain.pop();bCalled.push(it);const w=$('bCalledWord');w.textContent=it.word;w.style.animation='none';requestAnimationFrame(()=>{w.style.animation='popIn .4s ease';});$('bCalledCat').innerHTML=`<span class="${CAT_INFO[it.cat].cls}">${CAT_INFO[it.cat].icon} ${it.cat}</span>`;bBoard.forEach((bi,i)=>{if(bi.word===it.word&&bi.cat===it.cat){bMarked[i]=true;const c=$(`bc-${i}`);if(c)c.classList.add('marked');}});const h=$('bHistory'),ch=document.createElement('span');ch.className='chip';ch.textContent=`${it.word}(${it.cat})`;h.prepend(ch);bCheck();if(!bRemain.length){$('bCallBtn').disabled=true;$('bCallBtn').textContent='모든 단어를 뽑았어요!';}}
+function bCheck(){const lines=[[0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14,15],[0,4,8,12],[1,5,9,13],[2,6,10,14],[3,7,11,15],[0,5,10,15],[3,6,9,12]];for(let i=0;i<16;i++){const c=$(`bc-${i}`);if(c)c.classList.remove('bingo-line');}let cnt=0;lines.forEach(l=>{if(l.every(i=>bMarked[i])){cnt++;l.forEach(i=>{const c=$(`bc-${i}`);if(c)c.classList.add('bingo-line');});}});bLines=cnt;$('bCount').textContent=bLines;if(bLines>=2&&!bWon){bWon=true;confetti();if(hostMode)showToast('🏆 투빙고 달성! 단어 뽑기는 계속됩니다');else setTimeout(()=>showWin(),500);}}
 function showWin(){$('winMsg').textContent=pick(['지구계 완전 정복! 🌍','투빙고 달성! 과학왕! 👑','대단해요! 지구계 마스터! 🎓']);$('winOverlay').classList.add('show');}
 function closeWin(){$('winOverlay').classList.remove('show');if(!hostMode)bInit();}
 
 // ========== CAPTURE ==========
-function captureCardResult(){
-  const cv=document.createElement('canvas'),W=520,H=380;cv.width=W;cv.height=H;const ctx=cv.getContext('2d');
-  ctx.fillStyle='#0f1629';ctx.fillRect(0,0,W,H);ctx.strokeStyle='rgba(102,126,234,.25)';ctx.lineWidth=3;ctx.strokeRect(10,10,W-20,H-20);ctx.textAlign='center';
-  ctx.fillStyle='#fff';ctx.font='bold 20px sans-serif';ctx.fillText('🌍 송쌤과학 지구계 카드게임 결과',W/2,48);
-  const acc=Math.round(cOk/cTot*100);let g;if(acc>=90)g='S';else if(acc>=75)g='A';else if(acc>=60)g='B';else if(acc>=40)g='C';else g='D';
-  ctx.font='44px serif';ctx.fillText(acc>=90?'🏆':acc>=75?'🌟':acc>=60?'👍':acc>=40?'💪':'📚',W/2,105);
-  ctx.fillStyle='#FFD54F';ctx.font='bold 52px sans-serif';ctx.fillText(g,W/2,168);
-  ctx.fillStyle='rgba(255,255,255,.6)';ctx.font='16px sans-serif';ctx.fillText(`${cOk}/${cTot} 정답 · ${cSc}점 · 정확도 ${acc}%`,W/2,205);
-  const cats=['지권','수권','기권','생물권','외권'],colors={'지권':'#D4A574','수권':'#64B5F6','기권':'#90A4AE','생물권':'#81C784','외권':'#FFD54F'};
-  ctx.font='bold 13px sans-serif';ctx.textAlign='left';
-  cats.forEach((c,i)=>{const y=235+i*22;ctx.fillStyle=colors[c];ctx.fillText(`${CAT_INFO[c].icon} ${c}`,30,y);ctx.fillStyle='rgba(255,255,255,.5)';ctx.font='12px sans-serif';ctx.fillText(CARD_ITEMS.filter(it=>it.cat===c).map(it=>it.word).slice(0,5).join(', '),130,y);ctx.font='bold 13px sans-serif';});
-  ctx.fillStyle='rgba(255,255,255,.2)';ctx.font='11px sans-serif';ctx.textAlign='center';ctx.fillText('송쌤과학 가상실험실',W/2,H-14);
-  dlCanvas(cv,'카드게임_결과');
-}
+function captureCardResult(){const cv=document.createElement('canvas'),W=520,H=380;cv.width=W;cv.height=H;const ctx=cv.getContext('2d');ctx.fillStyle='#0f1629';ctx.fillRect(0,0,W,H);ctx.strokeStyle='rgba(102,126,234,.25)';ctx.lineWidth=3;ctx.strokeRect(10,10,W-20,H-20);ctx.textAlign='center';ctx.fillStyle='#fff';ctx.font='bold 20px sans-serif';ctx.fillText('🌍 송쌤과학 지구계 카드게임 결과',W/2,48);const acc=Math.round(cOk/cTot*100);let g;if(acc>=90)g='S';else if(acc>=75)g='A';else if(acc>=60)g='B';else if(acc>=40)g='C';else g='D';ctx.font='44px serif';ctx.fillText(acc>=90?'🏆':acc>=75?'🌟':acc>=60?'👍':acc>=40?'💪':'📚',W/2,105);ctx.fillStyle='#FFD54F';ctx.font='bold 52px sans-serif';ctx.fillText(g,W/2,168);ctx.fillStyle='rgba(255,255,255,.6)';ctx.font='16px sans-serif';ctx.fillText(`${cOk}/${cTot} 정답 · ${cSc}점 · 정확도 ${acc}%`,W/2,205);const cats=['지권','수권','기권','생물권','외권'],colors={'지권':'#D4A574','수권':'#64B5F6','기권':'#90A4AE','생물권':'#81C784','외권':'#FFD54F'};ctx.font='bold 13px sans-serif';ctx.textAlign='left';cats.forEach((c,i)=>{const y=235+i*22;ctx.fillStyle=colors[c];ctx.fillText(`${CAT_INFO[c].icon} ${c}`,30,y);ctx.fillStyle='rgba(255,255,255,.5)';ctx.font='12px sans-serif';ctx.fillText(CARD_ITEMS.filter(it=>it.cat===c).map(it=>it.word).slice(0,5).join(', '),130,y);ctx.font='bold 13px sans-serif';});ctx.fillStyle='rgba(255,255,255,.2)';ctx.font='11px sans-serif';ctx.textAlign='center';ctx.fillText('송쌤과학 가상실험실',W/2,H-14);dlCanvas(cv,'카드게임_결과');}
+function captureInteractResult(){const cv=document.createElement('canvas'),W=560,H=420;cv.width=W;cv.height=H;const ctx=cv.getContext('2d');ctx.fillStyle='#0f1629';ctx.fillRect(0,0,W,H);ctx.strokeStyle='rgba(102,126,234,.25)';ctx.lineWidth=3;ctx.strokeRect(10,10,W-20,H-20);ctx.textAlign='center';ctx.fillStyle='#fff';ctx.font='bold 20px sans-serif';ctx.fillText('🔄 송쌤과학 상호작용 퀴즈 결과',W/2,44);ctx.fillStyle='#FFD54F';ctx.font='bold 36px sans-serif';ctx.fillText(`${Math.round(iSc/10)}/${INTERACT_ITEMS.length} 정답 (${iSc}점)`,W/2,85);ctx.textAlign='left';ctx.font='bold 13px sans-serif';INTERACT_ITEMS.forEach((it,i)=>{const y=115+i*40;ctx.fillStyle='#FFD54F';ctx.fillText(it.answer,30,y);ctx.fillStyle='rgba(255,255,255,.55)';ctx.font='12px sans-serif';ctx.fillText(it.title,170,y);ctx.font='bold 13px sans-serif';});ctx.fillStyle='rgba(255,255,255,.2)';ctx.font='11px sans-serif';ctx.textAlign='center';ctx.fillText('송쌤과학 가상실험실',W/2,H-14);dlCanvas(cv,'상호작용_결과');}
+function captureBingo(){const cv=document.createElement('canvas'),W=520,H=540;cv.width=W;cv.height=H;const ctx=cv.getContext('2d');ctx.fillStyle='#0f1629';ctx.fillRect(0,0,W,H);ctx.strokeStyle='rgba(102,126,234,.25)';ctx.lineWidth=3;ctx.strokeRect(10,10,W-20,H-20);ctx.textAlign='center';ctx.fillStyle='#fff';ctx.font='bold 20px sans-serif';ctx.fillText('🌍 송쌤과학 4×4 빙고',W/2,48);ctx.fillStyle='#FFD54F';ctx.font='bold 17px sans-serif';ctx.fillText(`빙고: ${bLines}줄${bWon?' 🏆 투빙고 달성!':''}`,W/2,76);const lines=[[0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14,15],[0,4,8,12],[1,5,9,13],[2,6,10,14],[3,7,11,15],[0,5,10,15],[3,6,9,12]];const ls=new Set();lines.forEach(l=>{if(l.every(i=>bMarked[i]))l.forEach(i=>ls.add(i));});const cs=96,gap=7,tw=cs*4+gap*3,sx=(W-tw)/2,sy=95;const catC={'지권':'#D4A574','수권':'#64B5F6','기권':'#90A4AE','생물권':'#81C784','외권':'#FFD54F'};bBoard.forEach((it,i)=>{const r=Math.floor(i/4),c=i%4,x=sx+c*(cs+gap),y=sy+r*(cs+gap);ctx.beginPath();ctx.roundRect(x,y,cs,cs,9);if(ls.has(i)){ctx.fillStyle='rgba(255,213,79,.3)';ctx.strokeStyle='#FFD54F';}else if(bMarked[i]){ctx.fillStyle='rgba(102,126,234,.3)';ctx.strokeStyle='rgba(102,126,234,.55)';}else{ctx.fillStyle='rgba(255,255,255,.04)';ctx.strokeStyle='rgba(255,255,255,.12)';}ctx.fill();ctx.lineWidth=2;ctx.stroke();ctx.fillStyle=bMarked[i]?'rgba(255,255,255,.45)':'#fff';ctx.font='bold 15px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(it.word,x+cs/2,y+cs/2-9);ctx.fillStyle=catC[it.cat]||'#999';ctx.font='11px sans-serif';ctx.fillText(`(${it.cat})`,x+cs/2,y+cs/2+13);if(bMarked[i]){ctx.strokeStyle='rgba(255,255,255,.2)';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x+14,y+14);ctx.lineTo(x+cs-14,y+cs-14);ctx.moveTo(x+cs-14,y+14);ctx.lineTo(x+14,y+cs-14);ctx.stroke();}});ctx.fillStyle='rgba(255,255,255,.2)';ctx.font='11px sans-serif';ctx.textAlign='center';ctx.fillText('송쌤과학 가상실험실',W/2,H-14);dlCanvas(cv,'빙고판_결과');}
 
-function captureInteractResult(){
-  const cv=document.createElement('canvas'),W=560,H=420;cv.width=W;cv.height=H;const ctx=cv.getContext('2d');
-  ctx.fillStyle='#0f1629';ctx.fillRect(0,0,W,H);ctx.strokeStyle='rgba(102,126,234,.25)';ctx.lineWidth=3;ctx.strokeRect(10,10,W-20,H-20);ctx.textAlign='center';
-  ctx.fillStyle='#fff';ctx.font='bold 20px sans-serif';ctx.fillText('🔄 송쌤과학 상호작용 퀴즈 결과',W/2,44);
-  ctx.fillStyle='#FFD54F';ctx.font='bold 36px sans-serif';ctx.fillText(`${Math.round(iSc/10)}/${INTERACT_ITEMS.length} 정답 (${iSc}점)`,W/2,85);
-  ctx.textAlign='left';ctx.font='bold 13px sans-serif';
-  INTERACT_ITEMS.forEach((it,i)=>{const y=115+i*40;ctx.fillStyle='#FFD54F';ctx.fillText(it.answer,30,y);ctx.fillStyle='rgba(255,255,255,.55)';ctx.font='12px sans-serif';ctx.fillText(it.title,170,y);ctx.font='bold 13px sans-serif';});
-  ctx.fillStyle='rgba(255,255,255,.2)';ctx.font='11px sans-serif';ctx.textAlign='center';ctx.fillText('송쌤과학 가상실험실',W/2,H-14);
-  dlCanvas(cv,'상호작용_결과');
-}
-
-function captureBingo(){
-  const cv=document.createElement('canvas'),W=520,H=540;cv.width=W;cv.height=H;const ctx=cv.getContext('2d');
-  ctx.fillStyle='#0f1629';ctx.fillRect(0,0,W,H);ctx.strokeStyle='rgba(102,126,234,.25)';ctx.lineWidth=3;ctx.strokeRect(10,10,W-20,H-20);ctx.textAlign='center';
-  ctx.fillStyle='#fff';ctx.font='bold 20px sans-serif';ctx.fillText('🌍 송쌤과학 4×4 빙고',W/2,48);
-  ctx.fillStyle='#FFD54F';ctx.font='bold 17px sans-serif';ctx.fillText(`빙고: ${bLines}줄${bWon?' 🏆 투빙고 달성!':''}`,W/2,76);
-  const lines=[[0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14,15],[0,4,8,12],[1,5,9,13],[2,6,10,14],[3,7,11,15],[0,5,10,15],[3,6,9,12]];
-  const ls=new Set();lines.forEach(l=>{if(l.every(i=>bMarked[i]))l.forEach(i=>ls.add(i));});
-  const cs=96,gap=7,tw=cs*4+gap*3,sx=(W-tw)/2,sy=95;
-  const catC={'지권':'#D4A574','수권':'#64B5F6','기권':'#90A4AE','생물권':'#81C784','외권':'#FFD54F'};
-  bBoard.forEach((it,i)=>{const r=Math.floor(i/4),c=i%4,x=sx+c*(cs+gap),y=sy+r*(cs+gap);ctx.beginPath();ctx.roundRect(x,y,cs,cs,9);if(ls.has(i)){ctx.fillStyle='rgba(255,213,79,.3)';ctx.strokeStyle='#FFD54F';}else if(bMarked[i]){ctx.fillStyle='rgba(102,126,234,.3)';ctx.strokeStyle='rgba(102,126,234,.55)';}else{ctx.fillStyle='rgba(255,255,255,.04)';ctx.strokeStyle='rgba(255,255,255,.12)';}ctx.fill();ctx.lineWidth=2;ctx.stroke();ctx.fillStyle=bMarked[i]?'rgba(255,255,255,.45)':'#fff';ctx.font='bold 15px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(it.word,x+cs/2,y+cs/2-9);ctx.fillStyle=catC[it.cat]||'#999';ctx.font='11px sans-serif';ctx.fillText(`(${it.cat})`,x+cs/2,y+cs/2+13);if(bMarked[i]){ctx.strokeStyle='rgba(255,255,255,.2)';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x+14,y+14);ctx.lineTo(x+cs-14,y+cs-14);ctx.moveTo(x+cs-14,y+14);ctx.lineTo(x+14,y+cs-14);ctx.stroke();}});
-  ctx.fillStyle='rgba(255,255,255,.2)';ctx.font='11px sans-serif';ctx.textAlign='center';ctx.fillText('송쌤과학 가상실험실',W/2,H-14);
-  dlCanvas(cv,'빙고판_결과');
-}
-
-function dlCanvas(cv,name){
-  cv.toBlob(function(blob){
-    if(!blob){showToast('캡처 실패!');return;}
-    var fn='송쌤과학_'+name+'.png';
-    if(navigator.share&&/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)){
-      var f=new File([blob],fn,{type:'image/png'});
-      navigator.share({files:[f],title:fn}).then(function(){showToast('📸 공유 완료!');}).catch(function(){mDl(blob,fn);});
-    }else{mDl(blob,fn);}
-  },'image/png');
-}
+function dlCanvas(cv,name){cv.toBlob(function(blob){if(!blob){showToast('캡처 실패!');return;}var fn='송쌤과학_'+name+'.png';if(navigator.share&&/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)){try{var f=new File([blob],fn,{type:'image/png'});navigator.share({files:[f],title:fn}).then(function(){showToast('📸 공유 완료!');}).catch(function(){mDl(blob,fn);});}catch(e){mDl(blob,fn);}}else{mDl(blob,fn);}},'image/png');}
 function mDl(blob,fn){var u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=fn;a.style.display='none';document.body.appendChild(a);setTimeout(function(){a.click();setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(u);},300);showToast('📸 캡처 완료!');},100);}
-
 function confetti(){const c=$('confetti'),cols=['#FFD54F','#FF7043','#66BB6A','#42A5F5','#AB47BC','#EF5350','#26C6DA'];for(let i=0;i<60;i++){const p=document.createElement('div');p.className='confetti-piece';p.style.cssText=`left:${Math.random()*100}%;background:${pick(cols)};width:${Math.random()*10+5}px;height:${Math.random()*10+5}px;border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${Math.random()*2+1.5}s;animation-delay:${Math.random()*.8}s;`;c.appendChild(p);setTimeout(()=>p.remove(),4000);}}
 
-cInit();iInit();bInit();
+// ===== INIT: 인트로 화면만 표시, 게임은 시작 버튼 누를 때 =====
+bInit();
 </script>
 </body>
 </html>
